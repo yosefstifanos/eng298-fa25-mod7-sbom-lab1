@@ -137,6 +137,25 @@ So the full path means: “Save the SBOM JSON file one level up, inside the deli
    ```bash
    trivy fs . --format cyclonedx --output ../deliverables/sbom_trivy_cdx.json
    ```
+### Syntax Breakdown
+
+**trivy** Open-source command-line tool used to generate SBOMs as well as scan filesystems, containers, and repositories for vulnerabilities
+
+**fs** Program sub-command, short for file system, tells Trivy to scan the local files and directories (not a Docker image or repo)
+
+**.** The single dot (.) means “the current directory.” Trivy will inspect all the code and dependencies in your current working, which is ng911-dev 
+
+**--format cyclonedx** Program option (--format) specifying the output format. Here, cyclonedx tells Trivy to generate the SBOM in the CycloneDX format (an alternative to SPDX)
+
+**--output ../deliverables/sbom_trivy_cdx.json** Program option (--output) defines where and what to name the output file:
+
+.. → Go up one directory level from the current folder
+
+/deliverables/ → Save it inside the deliverables directory
+
+sbom_trivy_cdx.json → The name of the generated CycloneDX SBOM file
+
+So the file will be created as ../deliverables/sbom_trivy_cdx.json
 
 6. **After both commands complete, run**
 
